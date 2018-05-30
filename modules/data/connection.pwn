@@ -9,19 +9,36 @@
 | NOTE :
 |		* It should only contain connection information
 |_______________________________________________________*/
+
 #include <YSI\y_hooks>
 
-#define @sqlhost "127.0.0.1"
-#define @sqluser "root"
-#define @sqlpass ""
-#define @sqldata ""
+//--------------------------------------------------------------------------------
 
-new mysql;
+new MySQL:db_handle;
+static bool:devMode = @gDevMode;
+
+//--------------------------------------------------------------------------------
 
 hook OnGameModeInit()
-{	
-	mysql = mysql_connect(@sqlhost, @sqluser, @sqlpass, @sqldata);
+{
+	// Enabling logs if are running in dev mode.
+	if(devMode == true){
+		mysql_log(ALL);
+		print("Server running in development mode.\n");
+	}
+
+	db_handle = mysql_connect_file();
+	if(mysql_errno(db_handle) != 0)
+	{
+		printf("[mysql] ERROR: Couldn't connect to the database (%d).", mysql_errno(db_handle));
+		SendRconCommand("exit");
+	}
+	else printf("[mysql] DEBUG: Connected to database successfully (%d).", _:db_handle);
 	return 1;
 }
 
-/* Connection established. */
+hook OnGameModeExit()
+{
+	if(db_handle) return mysql_close(db_handle);
+	return 1;
+}
