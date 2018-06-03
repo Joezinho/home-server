@@ -35,12 +35,16 @@
 
 #define MAX_PLAYER_PASSWORD								65
 
+#define LAST_POSITION									0
+
 //--------------------------------------------------------------------------------
 
-#define COLOR_SUCCESS 									0xFFFFFFFF
-#define COLOR_WARNING									0xFFFFFFFF
-#define COLOR_ERROR										0xFFFFFFFF
-#define COLOR_INFO										0xFFFFFFFF
+#define COLOR_SELECTION									0xff632bff
+
+#define COLOR_SUCCESS									0x16a085ff
+#define COLOR_WARNING									0x079992ff
+#define COLOR_ERROR										0x990626ff
+#define COLOR_INFO										0xd63939ff
 
 //--------------------------------------------------------------------------------
 
@@ -48,6 +52,10 @@
 #include <crashdetect>
 #include <a_mysql>
 #include <YSI\y_hooks>
+#include <YSI\y_va>
+#include <YSI\y_timers>
+#include <sscanf2>
+#include <util>
 
 //--------------------------------------------------------------------------------
 
@@ -61,7 +69,6 @@ hook OnGameModeInit()
 	new rcon_command[32];
 	format(rcon_command, sizeof(rcon_command), "gamemodetext %s %s.%s%s", SCRIPT_VERSION_NAME, SCRIPT_VERSION_MAJOR, SCRIPT_VERSION_MINOR, SCRIPT_VERSION_PATCH);
 	SendRconCommand(rcon_command);
-
 	return 1;
 }
 
@@ -71,6 +78,16 @@ hook OnGameModeInit()
 
 /* Server */
 #include "../modules/data/connection.pwn"
+
+/* Defs */
+#include "../modules/def/dialogs.pwn"
+#include "../modules/def/messages.pwn"
+
+/* Data */
+#include "../modules/data/player.pwn"
+
+/* Visual */
+#include "../modules/visual/dashboard.pwn"
 
 //--------------------------------------------------------------------------------
 
