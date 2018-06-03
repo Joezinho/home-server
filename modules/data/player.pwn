@@ -214,7 +214,6 @@ GetPlayerIPf(playerid)
 {
     new ip[16];
     GetPlayerIp(playerid, ip, 16);
-    printf("my ip : %s", ip);
     return ip;
 }
 
@@ -323,7 +322,6 @@ public OnAccountCheck(playerid)
 		SetPlayerRegistered(playerid, false);
 	}
 
-	printf("row count: %d, registrado: %s", registros, (!gIsPlayerRegistered[playerid]) ? "Não" : "Sim");
 	SendClientMessagef(playerid, COLOR_INFO, "<!> {ffffff}Bem-vindo(a) {d63939}%s{ffffff}, você foi conectado com a dashboard.", GetPlayerFirstName(playerid));
 	if(!IsPlayerRegistered(playerid)) { SendClientMessage(playerid, COLOR_INFO, "<!> {ffffff}Você não possuí uma conta cadastrada, clique em registrar para começar."); }
 	return 1;

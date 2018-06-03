@@ -1,16 +1,14 @@
-#-------------------------------------------------------------
--- FILENAME :
--- 		main-db.sql
--- DESCRIPTION :
--- 		* Insert the main database and copy structures
--- NOTES :
--- 		* Don't manipulate tables
--- 		* Only set tables
-#-------------------------------------------------------------
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: main-db
+-- ------------------------------------------------------
+-- Server version	5.7.17
 
--- Criando banco de dados e definindo suas regras.
+--
+-- Copiando banco de dados
+--
 CREATE DATABASE IF NOT EXISTS `main-db`
-DEFAULT CHARSET utf8
-DEFAULT COLLATE utf8_general_ci;
+DEFAULT CHARSET = 'utf8'
+DEFAULT COLLATE = 'utf8_general_ci';
 
 USE `main-db`;

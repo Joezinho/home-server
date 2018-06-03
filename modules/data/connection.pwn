@@ -39,6 +39,6 @@ hook OnGameModeInit()
 
 hook OnGameModeExit()
 {
-	if(db_handle) return mysql_close(db_handle);
+	if(db_handle) return mysql_close(db_handle) && print("[mysql] DEBUG: Connection to database stopped.");
 	return 1;
 }

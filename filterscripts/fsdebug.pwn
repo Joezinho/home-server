@@ -53,7 +53,7 @@
 #define COLOR_NONE      0x00000000
 
 #define MIN_SKIN_ID		0
-#define MAX_SKIN_ID		299
+#define MAX_SKIN_ID		311
 
 #define MIN_VEHI_ID		400
 #define MAX_VEHI_ID		611
